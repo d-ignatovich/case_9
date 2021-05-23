@@ -20,10 +20,10 @@ def main():
     for k, v in dict.items():
         print(k, ':', v, sep ='', end='  ')
 
-    '''check_game(end_ter, end_people, end_troub, end_wheat, year)'''
+    '''check_game(dict, end_ter, end_people, end_troub, end_wheat, year)'''
     
 
-def check_game(end_ter, end_people, end_troub, end_wheat, year):
+def check_game(dict, end_ter, end_people, end_troub, end_wheat, year):
     if dict['territory'] < end_ter:
         return print("Game over. You've lost territory. You ruled the state N"+ year)
     elif dict['treasury'] < 0:
