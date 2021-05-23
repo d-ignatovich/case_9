@@ -17,6 +17,11 @@ def main():
     end_troub = random.randint(50, 100)
     end_wheat = random.randint(1, 3)
     
+    for k, v in dict.items():
+        print(k, ':', v, sep ='', end='  ')
+
+    '''check_game(end_ter, end_people, end_troub, end_wheat, year)'''
+    
 
 def check_game(end_ter, end_people, end_troub, end_wheat, year):
     if dict['territory'] < end_ter:
@@ -32,26 +37,6 @@ def check_game(end_ter, end_people, end_troub, end_wheat, year):
         dict['troubles'] += a
         return print('Hunger. The level of troubles increased by', a)
     return year+1
-
-
-
-import random
-
-print("Have you ever dreamed of running a state? You have a great opportunity to show how you are. You are in power "
-      "in the state N. By making annual decisions, you will either stay in power or be overthrown by your people. "
-      "Show what you are capable of! Good luck! You have certain parameters: territory, treasury, wheat, people, "
-      "troubles.")
-def main():
-    year = 1
-    dict = {'territory': 0, 'treasury': 1000, 'people': 1000, 'wheat': 5000, 'troubles': 0}
-    for k, v in dict.items():
-        print(k, ':', v, sep ='', end='  ')
-
-    end_ter = random.randint(0, 300)
-    end_people = random.randint(0, 200)
-    end_troub = random.randint(50, 100)
-    end_wheat = random.randint(1, 3)
-    check_game(end_ter, end_people, end_troub, end_wheat, year)
     
 
 main()
