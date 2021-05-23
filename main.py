@@ -5,8 +5,14 @@
 print("Have you ever dreamed of running a state? You have a great opportunity to show how you are. You are in power in the state ***."+"\n"+ 
 "By making annual decisions, you will either stay in power or be overthrown by your people."+"\n"+"Show what you are capable of! Good luck!"+"\n"+"You have certain parameters: land, treasury, wheat, people, troubles.")
 def main():
+    '''Parameters for starting the game and losing'''
     year = 1
     dict = {'territory': 1000, 'treasury': 1000, 'people': 1000, 'wheat': 5000, 'troubles': 0}
+    end_ter = random.randint(0, 300)
+    end_people = random.randint(0, 200)
+    end_troub = random.randint(50, 100)
+    end_wheat = random.randint(1, 3)
+    
 
     for key, value in dictionary:
         if land[value] < 300:
