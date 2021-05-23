@@ -38,5 +38,35 @@ def check_game(dict, end_ter, end_people, end_troub, end_wheat, year):
         return print('Hunger. The level of troubles increased by', a)
     return year+1
     
+rand = random.randint(1, 6)
+if rand == 1:
+    print('The epidemic has begun! Do you want to allocate money for medicines?')
+    answer = input()
+    if answer == 'yes':
+        dictionary['people'] -= random.randint(0, 100)
+        dictionary['treasury'] -= random.randint(100, 900)
+    if answer == 'no':
+        dictionary['people'] -= random.randint(200, 900)
+elif rand == 2:
+    print('The drought has begun! The harvest was lost')
+    dictionary['harvest'] -= random.randint(1, 900)
+elif rand == 3:
+    print('There was an influx of tourists!')
+    dictionary['population'] += random.randint(100, 900)
+    dictionary['treasury'] += random.randint(100, 900)
+elif rand == 4:
+    print('A new oil field has been discovered!')
+    dictionary["treasury"] += random.randint(100, 900)
+elif rand == 5:
+    army = random.randint(100, 900)
+    print('You were attacked by', army, 'people')
+    if army > dictionary['people']:
+        dictionary['people'] -= random.randint(100, 500)
+    else:
+        dictionary['people'] += random.randint(100, 500)
+elif rand == 6:
+    print('Quiet environment')
+    
+    
 
 main()
