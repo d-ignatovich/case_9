@@ -14,22 +14,20 @@ def main():
     end_wheat = random.randint(1, 3)
     
 
-    for key, value in dictionary:
-        if land[value] < 300:
-            return print("Game over. They ruled the state ***"+ year)
-        elif population[value] < 200:
-            return print("Game over. They ruled the state ***"+ year)
-        elif the_level_of_turmoil[value] > 50:
-            return print("Game over. They ruled the state ***"+ year)
-        elif treasury[value] =="bankrupt":
-            return print("Game over. They ruled the state ***"+ year)
-        else:
-            continue
-main()
-
-
-
-
+def check_game(end_ter, end_people, end_troub, end_wheat, year):
+    if dict['territory'] < end_ter:
+        return print("Game over. You've lost territory. You ruled the state N"+ year)
+    elif dict['treasury'] < 0:
+        return print("Game over. The treasury is empty. You ruled the state N"+ year)
+    elif dict['people'] < end_people:
+        return print("Game over. Not enough people. You ruled the state N"+ year)
+    elif dict['troubles'] > end_troub:
+        return print("Game over. You were deposed. You ruled the state N"+ year)
+    elif dict['wheat'] // dict['people'] < end_wheat:
+        a = random.randint(0, 10)
+        dict['troubles'] += a
+        return print('Hunger. The level of troubles increased by', a)
+    return year+1
 
 
 
@@ -50,22 +48,6 @@ def main():
     end_troub = random.randint(50, 100)
     end_wheat = random.randint(1, 3)
     check_game(end_ter, end_people, end_troub, end_wheat, year)
-
-
-def check_game(end_ter, end_people, end_troub, end_wheat, year):
-    if dict['territory'] < end_ter:
-        return print("Game over. You've lost territory. You ruled the state N"+ year)
-    elif dict['treasury'] < 0:
-        return print("Game over. The treasury is empty. You ruled the state N"+ year)
-    elif dict['people'] < end_people:
-        return print("Game over. Not enough people. You ruled the state N"+ year)
-    elif dict['troubles'] > end_troub:
-        return print("Game over. You were deposed. You ruled the state N"+ year)
-    elif dict['wheat'] // dict['people'] < end_wheat:
-        a = random.randint(0, 10)
-        dict['troubles'] += a
-        return print('Hunger. The level of troubles increased by', a)
-    return year+1
-
+    
 
 main()
