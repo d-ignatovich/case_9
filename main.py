@@ -4,18 +4,6 @@
 '''
 
 import random
-
-print("Have you ever dreamed of running a state? You have a great opportunity to show how you are. You are in power in the state ***."+"\n"+ 
-"By making annual decisions, you will either stay in power or be overthrown by your people."+"\n"+"Show what you are capable of! Good luck!"+"\n"+"You have certain parameters: land, treasury, wheat, people, troubles.")
-
-def main():
-    '''Parameters for starting the game and losing'''
-    year = 1
-    dictionary = {'territory': 1000, 'treasury': 1000, 'people': 1000, 'wheat': 5000, 'troubles': 0}
-    end_ter = random.randint(0, 300)
-    end_people = random.randint(0, 200)
-    end_troub = random.randint(50, 100)
-    end_wheat = random.randint(1, 3)
     
     
 def print_dict(dictionary):
@@ -23,7 +11,7 @@ def print_dict(dictionary):
         print(k, ':', v, sep='', end='  ')
     
 
-def check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year):
+def check_game(dictionary, end_ter, end_people, end_troub, year):
     if dictionary['territory'] < end_ter:
         return print("Game over. You've lost territory. You ruled the state N", year)
     elif dictionary['treasury'] < 0:
@@ -32,10 +20,6 @@ def check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year):
         return print("Game over. Not enough people. You ruled the state N", year)
     elif dictionary['troubles'] > end_troub:
         return print("Game over. You were deposed. You ruled the state N", year)
-    elif dictionary['wheat'] // dict['people'] < end_wheat:
-        a = random.randint(0, 10)
-        dict['troubles'] += a
-        return print('Hunger. The level of troubles increased by', a)
     return year+1
     
 def random_events(dictionary):    
@@ -113,5 +97,19 @@ def events(dictionary):
     print_dict(dictionary)
     check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year)
     
+
+def main():
+    print("Have you ever dreamed of running a state? You have a great opportunity to show how you are. You are in power in the state ***."+"\n"+ 
+"By making annual decisions, you will either stay in power or be overthrown by your people."+"\n"+"Show what you are capable of! Good luck!"+"\n"+"You have certain parameters: land, treasury, wheat, people, troubles.")
+
+'''Parameters for starting the game and losing'''
+    year = 1
+    dictionary = {'territory': 1000, 'treasury': 1000, 'people': 1000, 'wheat': 5000, 'troubles': 0}
+    end_ter = random.randint(0, 300)
+    end_people = random.randint(0, 200)
+    end_troub = random.randint(50, 100)
+    end_wheat = random.randint(1, 3)
     
+    events(dictionary)
+
 main()
