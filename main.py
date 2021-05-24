@@ -20,7 +20,7 @@ def check_game(dictionary, end_ter, end_people, end_troub, year):
         return print("Game over. Not enough people. You ruled the state N", year)
     elif dictionary['troubles'] > end_troub:
         return print("Game over. You were deposed. You ruled the state N", year)
-    return events(dictionary)
+    return events(dictionary, year)
     
 def random_events(dictionary):    
     rand = random.randint(1, 6)
