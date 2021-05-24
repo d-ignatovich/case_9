@@ -113,7 +113,7 @@ def events(dictionary, year):
 def main():
     print("Have you ever dreamed of running a state? You have a great opportunity to show how you are. You are in power in the state ***."+"\n"+ 
 "By making annual decisions, you will either stay in power or be overthrown by your people."+"\n"+"Show what you are capable of! Good luck!"+"\n"+"You have certain parameters: land, treasury, wheat, people, troubles.")
-
+    print()
  
     events(dictionary, year)
 
