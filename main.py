@@ -37,7 +37,7 @@ def random_events(dictionary):
         dictionary['wheat'] -= random.randint(1, ter)
     elif rand == 3:
         print('There was an influx of tourists!')
-        dictionary['population'] += random.randint(100, 900)
+        dictionary['people'] += random.randint(100, 900)
         dictionary['treasury'] += random.randint(100, 900)
     elif rand == 4:
         print('A new oil field has been discovered!')
