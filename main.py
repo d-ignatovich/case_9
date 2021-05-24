@@ -50,7 +50,7 @@ def random_events(dictionary):
             dictionary['people'] -= random.randint(200, 900)
     elif rand == 2:
         print('The drought has begun! The harvest was lost')
-        dictionary['wheat'] += ter - random.randint(1, ter)
+        dictionary['wheat'] -= random.randint(1, ter)
     elif rand == 3:
         print('There was an influx of tourists!')
         dictionary['population'] += random.randint(100, 900)
