@@ -1,7 +1,7 @@
 """Case-study
 Developers:   Ignatovich D. (65%),
               Miller A. (55%),
-              Poylova E. (50%)
+              Poylova E. (55%)
 """
 
 import random
