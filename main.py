@@ -17,10 +17,10 @@ def main():
     end_troub = random.randint(50, 100)
     end_wheat = random.randint(1, 3)
     
+    
+def print_dict(dictionary):
     for k, v in dictionary.items():
-        print(k, ':', v, sep ='', end='  ')
-
-    '''check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year)'''
+        print(k, ':', v, sep='', end='  ')
     
 
 def check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year):
@@ -69,5 +69,49 @@ def random_events(dictionary):
         print('Quiet environment')
     
     
+def events(dictionary):
+    print_dict(dictionary)
 
+    print('How much territory to give for planting?')
+    ter = int(input())
+    dictionary['territory'] -= ter
+    print_dict(dictionary)
+    print('The harvest is over.')
+    dictionary['territory'] += ter
+    dictionary['wheat'] += ter * random.randint(1, 7)
+    print_dict(dictionary)
+
+    random_events(dictionary)
+    print_dict(dictionary)
+
+    print('How much wheat to import? (1$ = 5 wheat)')
+    wheat = int(input())
+    dictionary['wheat'] += wheat
+    dictionary['treasury'] -= wheat * 5
+    print_dict(dictionary)
+
+    print('How much wheat to give to the people?')
+    wheat = int(input())
+    if wheat/end_wheat < dictionary['people']:
+        print('The people are starving')
+        dictionary['troubles'] += random.randint(1, 5)
+    dictionary['wheat'] -= wheat
+    print_dict(dictionary)
+
+    print('How much wheat to export? (5 wheat = 1$')
+    wheat = int(input())
+    dictionary['wheat'] -= wheat
+    dictionary['treasury'] += wheat // 5
+    print_dict(dictionary)
+
+    print('Set the amount of taxes this year')
+    tax = int(input())
+    if tax > random.randint(5, 20):
+        print('The taxes are too high.The people are not happy.')
+        dictionary['troubles'] += random.randint(1, 5)
+    dictionary['treasury'] += tax*dictionary['people']
+    print_dict(dictionary)
+    check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year)
+    
+    
 main()
