@@ -32,7 +32,7 @@ def check_game(dictionary, end_ter, end_people, end_troub, year):
         return print("Game over. You were deposed. You ruled the state N", year)
     return events(dictionary, year)
     
-def random_events(dictionary):    
+def random_events(dictionary, ter):    
     rand = random.randint(1, 6)
     if rand == 1:
         print('The epidemic has begun! Do you want to allocate money for medicines? (yes/no)')
@@ -94,7 +94,7 @@ def events(dictionary, year):
     dictionary['wheat'] -= wheat
     print_dict(dictionary)
 
-    print('How much wheat to export? (5 wheat = 1$')
+    print('How much wheat to export? (5 wheat = 1$)')
     wheat = int(input())
     dictionary['wheat'] -= wheat
     dictionary['treasury'] += wheat // 5
