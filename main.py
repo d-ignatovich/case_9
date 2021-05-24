@@ -41,7 +41,7 @@ def check_game(dictionary, end_ter, end_people, end_troub, end_wheat, year):
 def random_events(dictionary):    
     rand = random.randint(1, 6)
     if rand == 1:
-        print('The epidemic has begun! Do you want to allocate money for medicines?')
+        print('The epidemic has begun! Do you want to allocate money for medicines? (yes/no)')
         answer = input()
         if answer == 'yes':
             dictionary['people'] -= random.randint(0, 100)
@@ -50,7 +50,7 @@ def random_events(dictionary):
             dictionary['people'] -= random.randint(200, 900)
     elif rand == 2:
         print('The drought has begun! The harvest was lost')
-        dictionary['harvest'] -= random.randint(1, 900)
+        dictionary['wheat'] += ter - random.randint(1, ter)
     elif rand == 3:
         print('There was an influx of tourists!')
         dictionary['population'] += random.randint(100, 900)
